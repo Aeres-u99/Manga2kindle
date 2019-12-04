@@ -14,7 +14,7 @@ for i in subfolders:
     os.chdir(i) #enter into the subdirectory
     with open(nameofpdf,"wb") as f:
         print("\n =>> Converting ",nameofpdf)
-        f.write(img2pdf.convert([i for i in os.listdir('.')if i.endswith(".jpg") or i.endswith(".png")]))
+        f.write(img2pdf.convert([i for i in sorted(os.listdir('.'))if i.endswith(".jpg") or i.endswith(".png")]))
         print("\n ==> Moving ",nameofpdf)
         shutil.move(nameofpdf,"..")
         os.chdir("..")
